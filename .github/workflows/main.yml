@@ -28,15 +28,13 @@ jobs:
       run: npm test
 
     - name: Build project
-      run: | 
-        export PUBLIC_URL="https://euoc.github.io/test"
-        npm run build
+      run: npm run build
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
+        publish_dir: ./dist
 
 permissions:
   contents: write
